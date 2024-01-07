@@ -122,12 +122,25 @@ class TransactionController extends Controller
         ]);
 
         foreach ($request->products as $productId => $productData) {
-            TransactionProduct::where('transaction_id', $transaction->id)->where('product_id', $productId)->update([
-                'transaction_id' => $transaction->id,
-                'product_id' => $productId,
-                'quantity' => $productData['quantity'],
-                'price' => $productData['price'],
-            ]);
+            $transactionProduct = TransactionProduct::where('transaction_id', $transaction->id)
+                ->where('product_id', $productId)
+                ->first();
+        
+            if ($transactionProduct) {
+                // If the transaction product already exists, update it
+                $transactionProduct->update([
+                    'quantity' => $productData['quantity'],
+                    'price' => $productData['price'],
+                ]);
+            } else {
+                // If the transaction product does not exist, create a new entry
+                TransactionProduct::create([
+                    'transaction_id' => $transaction->id,
+                    'product_id' => $productId,
+                    'quantity' => $productData['quantity'],
+                    'price' => $productData['price'],
+                ]);
+            }
         }
 
         return redirect()->route('transactions.index')->with('success', 'Transaction updated successfully!');

@@ -13,7 +13,8 @@
             <div class="bg-white p-4 rounded-md mb-4">
                 <div class="mb-2">
                     <label class="font-semibold">Invoice:</label>
-                    <a href="{{ Storage::url($transaction->invoice) }}">{{ $transaction->invoice }}</a>
+                    <img src="{{ asset('storage/'. $transaction->invoice) }}" alt="{{ $transaction->invoice }}" style="width: 200px;">
+                
                 </div>
                 <div class="mb-2">
                     <label class="font-semibold">Date:</label>

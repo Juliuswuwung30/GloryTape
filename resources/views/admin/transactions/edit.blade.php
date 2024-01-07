@@ -216,6 +216,11 @@
 
             // Close modal
             $('#productModal').modal('hide');
+
+            // Close modal and remove backdrop
+            $('#productModal').modal('hide').on('hidden.bs.modal', function(e) {
+                $('.modal-backdrop').remove();
+            });
         });
 
         // Handle product removal
