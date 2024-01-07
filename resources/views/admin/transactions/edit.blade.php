@@ -150,7 +150,7 @@
                             Add Product
                         </button>
                         <button type="submit"
-                            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
+                            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
                     </div>
                 </div>
             </form>
@@ -168,38 +168,51 @@
         // Fetch products for modal
         $('#productModal').on('show.bs.modal', function() {
             $.ajax({
-                url: '/products', // Assuming a route that returns a list of products
+                url: '/api/products', // Make sure to include the correct path to your route
                 success: function(products) {
+                    console.log(products);
                     // Populate modal content with product options (e.g., a list)
-                    var productList = '';
+                    let productList = '';
                     $.each(products, function(i, product) {
-                        productList += '<li data-product-id="' + product.id + '">' +
-                            product.name + '</li>';
+                        // productList += '<li data-product-id="' + product.id + '">' + product.name + '</li>';
+                        productList += '<a data-product-id="' + product.id + '">' +
+                            product.name + '</a><br>';
                     });
-                    $('#productModal .modal-body').html('<ul>' + productList + '</ul>');
+                    // $('#productModal .modal-body').html('<ul>' + productList + '</ul>');
+                    $('#productModal .modal-body').html('<div>' + productList + '</div>');
                 }
             });
         });
 
         // Handle product selection
-        $('#productModal ul').on('click', 'li', function() {
-            var productId = $(this).data('product-id');
-            var productName = $(this).text();
+        $('#productModal div').on('click', 'a', function(event) {
+            event.preventDefault(); // Add this line to prevent default form submission
+            const productId = $(this).data('product-id');
+            const productName = $(this).text();
+
+            // Check if product is already in the list
+            const existingProduct = $('#products-container table tbody').find(
+                '.product-item[data-product-id="' + productId + '"]');
+            if (existingProduct.length) {
+                // alert('This product is already in the list.');
+                return;
+            }
 
             // Create product item element
-            var productItem = $('<div class="product-item">' +
-                '<p>' + productName + '</p>' +
-                '<input type="hidden" name="products[' + productId + '][product_id]" value="' +
-                productId + '">' +
-                '<input type="number" name="products[' + productId +
-                '][quantity]" value="1" class="form-control">' +
-                '<input type="number" name="products[' + productId +
-                '][price]" class="form-control">' +
-                '<button type="button" class="btn btn-danger remove-product">Remove</button>' +
-                '</div>');
+            const productItem = $('' +
+                '<tr class="product-item" data-product-id="' + productId + '">' +
+                '<td>' + productName + '</td>' +
+                '<input type="hidden" name="products[' + productId + '][product_id]" value=' +
+                productId + '>' +
+                '<td><input type="number" name="products[' + productId +
+                '][quantity]" value="1" class="form-control"></td>' +
+                '<td><input type="number" name="products[' + productId +
+                '][price]" class="form-control"></td>' +
+                '<td><button type="button" class="btn btn-danger remove-product">Remove</button></td>' +
+                '</tr>');
 
             // Append to products container
-            $('#products-container').append(productItem);
+            $('#products-container table tbody').append(productItem);
 
             // Close modal
             $('#productModal').modal('hide');
@@ -211,6 +224,4 @@
         });
     });
 </script>
-</body>
-
-</html>
+@include('admin.footer')
