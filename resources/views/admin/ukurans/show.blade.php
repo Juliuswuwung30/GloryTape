@@ -11,15 +11,15 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
                 <div class="bg-white p-4 rounded-md mb-4">
                     <div class="mb-2">
-                        <label class="font-semibold">Length:</label>
+                        <label class="font-semibold">Length (Centimeter):</label>
                         <p class="text-gray-800">{{ $ukuran->length }}</p>
                     </div>
                     <div class="mb-2">
-                        <label class="font-semibold">Width:</label>
+                        <label class="font-semibold">Width (Milimeter):</label>
                         <p class="text-gray-800">{{ $ukuran->width }}</p>
                     </div>
                     <div class="mb-2">
-                        <label class="font-semibold">Height:</label>
+                        <label class="font-semibold">Thickness (Micron):</label>
                         <p class="text-gray-800">{{ $ukuran->height }}</p>
                     </div>
                     <a href="{{ route('ukurans.index') }}"

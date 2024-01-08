@@ -30,7 +30,7 @@
                                     <tr>
                                         <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 sm:pl-6">Length (Meter)</th>
                                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500">Width (Centimeter)</th>
-                                        <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500">Height (Millimeter)</th>
+                                        <th scope="col" class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500">Thickness (Micron)</th>
                                         <th scope="col" class="relative py-3 pl-3 "><span class="sr-only">View</span></th>
                                         <th scope="col" class="relative py-3 pl-3 "><span class="sr-only">Edit</span></th>
                                         <th scope="col" class="relative py-3 pl-3 "><span class="sr-only">Delete</span></th>

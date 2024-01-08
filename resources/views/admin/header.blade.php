@@ -281,7 +281,9 @@
                             {{--                            <img class="h-8 w-auto"--}}
                             {{--                                 src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"--}}
                             {{--                                 alt="Workflow">--}}
-                            <h1 class="text-3xl font-bold text-gray-900">Glory Tape</h1>
+                            <h1 class="text-3xl font-bold text-gray-900">
+                                <a href="/">Glory Tape</a>
+                            </h1>
                         </div>
                         <nav class="mt-5 flex-1 px-2 bg-white space-y-1">
                             <a href="{{route('dashboard')}}"

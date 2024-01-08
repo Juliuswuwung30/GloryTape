@@ -50,7 +50,9 @@
                 <div class="bg-light p-4">
                     <h2>Contact Us</h2>
                     <p>Butuh Penawaran Harga, bantuan atau Konsultasi Produk?</p>
-                    <button class="btn btn-primary">Contact Us</button>
+                    <button class="btn btn-primary">
+                        <a href="/contact-us"style="color: white;text-decoration:none">Contact Us</a>
+                    </button>
                 </div>
             </div>
         </div>

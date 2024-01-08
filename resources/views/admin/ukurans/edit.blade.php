@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Ukuran</title>
-</head>
-<body>
-<h1>Edit Ukuran</h1>
-<form action="{{ route('ukurans.update', $ukuran->id) }}" method="POST">
-    @csrf
-    <div>
-        <label for="length">length:</label>
-        <input type="text" name="length" id="length" value="{{ $ukuran->length }}">
-    </div>
-    <div>
-        <label for="width">width:</label>
-        <input type="text" name="width" id="width" value="{{ $ukuran->width }}">
-    </div>
-    <div>
-        <label for="height">Weight:</label>
-        <input type="text" name="height" id="height" value="{{ $ukuran->height }}">
-    </div>
-    <button type="submit">Update Ukuran</button>
-</form>
-</body>
-</html>
-=======
 @include('admin.header')
 
 <main class="flex-1">
@@ -43,17 +16,17 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-4">
-                    <label for="length" class="block text-sm font-medium text-gray-700">length:</label>
+                    <label for="length" class="block text-sm font-medium text-gray-700">length (Centimeter):</label>
                     <input type="text" name="length" id="length" value="{{ $ukuran->length }}"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
                 <div class="mb-4">
-                    <label for="width" class="block text-sm font-medium text-gray-700">width:</label>
+                    <label for="width" class="block text-sm font-medium text-gray-700">width (Milimeter):</label>
                     <input type="text" name="width" id="width" value="{{ $ukuran->width }}"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
                 <div class="mb-4">
-                    <label for="height" class="block text-sm font-medium text-gray-700">Weight:</label>
+                    <label for="height" class="block text-sm font-medium text-gray-700">Thickness (Micron):</label>
                     <input type="text" name="height" id="height" value="{{ $ukuran->height }}"
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
@@ -63,4 +36,3 @@
     </div>
 </main>
 @include('admin.footer')
->>>>>>> origin/master

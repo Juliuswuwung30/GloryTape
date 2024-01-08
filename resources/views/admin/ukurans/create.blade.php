@@ -32,12 +32,12 @@
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
                 <div class="mb-4">
-                    <label for="width" class="block text-sm font-medium text-gray-700">Width (Centimeter):</label>
+                    <label for="width" class="block text-sm font-medium text-gray-700">Width (Milimeter):</label>
                     <input type="number" name="width" id="width"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
                 <div class="mb-4">
-                    <label for="height" class="block text-sm font-medium text-gray-700">Height (Millimeter):</label>
+                    <label for="height" class="block text-sm font-medium text-gray-700">Thickness (Micron):</label>
                     <input type="number" name="height" id="height"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
